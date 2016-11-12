@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Dictionary English - Japanese</string>
+    <string name="search">Search</string>
+    <string name="word">WORD</string>
+    <string name="word_1">WORD</string>
+    <string name="bookmark_1">BOOKMARK</string>
+    <string name="setting">Setting</string>
+    <string name="note">NOTE</string>
+    <string name="test">Testing123</string>
+    <string name="english_w">English</string>
+    <string name="japan">Japan</string>
+    <string name="favourite">Favourite</string>
+</resources>
