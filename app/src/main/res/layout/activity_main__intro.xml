@@ -88,10 +88,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             >
-            <ImageButton
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_word_english"
                 android:src="@drawable/en"
                 android:layout_marginLeft="20dp"
                 android:onClick="onClick"
@@ -110,6 +109,15 @@
 
                 android:layout_marginLeft="12dp"
                 />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_word_english"
+                android:background="@android:color/transparent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
         </RelativeLayout>
 
 
@@ -121,17 +129,23 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             >
-            <ImageButton
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:id="@+id/btn_word_japan"
+
                 android:src="@drawable/japan"
                 android:layout_gravity="center"
                 android:onClick="onClick"
                 android:background="@android:color/transparent"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="2dp"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_word_japan"
+                android:background="@android:color/transparent"
                 />
 
             <TextView
@@ -152,11 +166,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             >
-            <ImageButton
+            <ImageView
                 android:layout_width="wrap_content"
                 android:onClick="onClick"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_word_favourite"
+
                 android:src="@drawable/favourite"
                 android:layout_gravity="center"
                 android:background="@android:color/transparent"
@@ -164,7 +178,12 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginLeft="25dp"
                 />
-
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_word_favourite"
+                android:background="@android:color/transparent"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -183,19 +202,24 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             >
-            <ImageButton
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_setting"
+
                 android:src="@drawable/settings"
                 android:layout_gravity="center"
                 android:background="@android:color/transparent"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="3dp"
                 android:layout_marginBottom="10dp"
-                android:layout_marginLeft="11dp"
+                android:layout_marginLeft="20dp"
                 android:onClick="onClick"
                 />
-
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_setting"
+                android:background="@android:color/transparent"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -203,7 +227,7 @@
                 android:layout_below="@+id/btn_setting"
                 android:layout_gravity="center"
 
-                android:layout_marginLeft="09dp"
+                android:layout_marginLeft="11dp"
                 android:textColor="@android:color/white"
                 />
         </RelativeLayout>

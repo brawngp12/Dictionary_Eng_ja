@@ -29,13 +29,13 @@ import java.util.List;
 
 import static android.R.attr.fragment;
 
-    public class MainActivity_Intro extends AppCompatActivity implements View.OnClickListener {
+    public class MainActivity_Intro extends AppCompatActivity implements View.OnClickListener{
 
 
 
     private EditText edt_search;
     private TextView btn_test;
-    private ImageButton imgb_english , imgb_japan , imgb_favour , img_setting;
+    private Button btn_word_english , btn_word_japan , btn_word_favourite , btn_setting ;
     private ListView lst_danhsach_tu;
     private Button btn_search;
     private Adapter_danhsachtu adapter_danhsachtu;
@@ -48,13 +48,12 @@ import static android.R.attr.fragment;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main__intro);
         exec = new SqliteHelper_Query(getApplicationContext());
-
-
-        img_setting.setOnClickListener(this);
-        imgb_english.setOnClickListener(this);
-        imgb_favour.setOnClickListener(this);
-        imgb_japan.setOnClickListener(this);
         Loadcontrol();
+        btn_word_english.setOnClickListener(this);
+        btn_setting.setOnClickListener(this);
+        btn_word_japan.setOnClickListener(this);
+        btn_word_favourite.setOnClickListener(this);
+
 
 
 ////    LoadAdapter_dstu();
@@ -62,10 +61,6 @@ import static android.R.attr.fragment;
 
 
     }
-
-
-
-
   /*  private void LoadAdapter_dstu() {
 
         exec = SqliteHelper_Query.getInst(this);
@@ -80,20 +75,35 @@ import static android.R.attr.fragment;
         edt_search = (EditText) findViewById(R.id.edt_search);
         lst_danhsach_tu = (ListView) findViewById(R.id.lst_word);
         btn_search = (Button) findViewById(R.id.btn_search);
-
-        imgb_english = (ImageButton) findViewById(R.id.btn_word_english);
-        imgb_japan = (ImageButton) findViewById(R.id.btn_word_japan);
-        imgb_favour = (ImageButton) findViewById(R.id.btn_word_favourite);
-        img_setting = (ImageButton) findViewById(R.id.btn_setting);
+        btn_word_english = (Button) findViewById(R.id.btn_word_english);
+        btn_word_japan = (Button) findViewById(R.id.btn_word_japan);
+        btn_word_favourite = (Button) findViewById(R.id.btn_word_favourite);
+        btn_setting = (Button) findViewById(R.id.btn_setting);
 
     }
+
 
         @Override
         public void onClick(View view) {
             android.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
             Fragment fragment = null;
             switch (view.getId())
-                
+            {
+               case R.id.btn_word_english:
+                    fragment = new Fragment_listword();
+                    break;
+                case R.id.btn_word_japan:
+                    fragment = new Fragment_listword_japan();
+                    break;
+                case R.id.btn_word_favourite:
+                    fragment = new Fragment_listword();
+                    break;
+                case R.id.btn_setting:
+                    fragment = new Fragment_listword_japan();
+                    break;
+            }
+            fragmentTransaction.replace(R.id.layout_fragment, fragment);
+            fragmentTransaction.commit();
         }
     }
 
