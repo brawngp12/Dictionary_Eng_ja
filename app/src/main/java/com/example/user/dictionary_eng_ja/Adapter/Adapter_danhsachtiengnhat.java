@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.user.dictionary_eng_ja.Object.JapanDic_English;
 import com.example.user.dictionary_eng_ja.R;
@@ -35,6 +36,7 @@ public class Adapter_danhsachtiengnhat extends ArrayAdapter<JapanDic_English> {
             JapanDic_English japanDic_english1;
             japanDic_english1 = objects.get(position);
             txt_lst_danhsach.setText(japanDic_english1.getENG_MEAN());
+
         }
 
         else
