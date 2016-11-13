@@ -48,7 +48,7 @@ public class Fragment_listword extends android.app.Fragment {
                 String sSi = intent.toString();
                 startActivity(intent);
                 if(sSi != null) {
-                    Toast.makeText(getActivity(), " Chuyển sang layout khác nàoz ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), " Chuyển sang layout khác nào english ", Toast.LENGTH_SHORT).show();
                 }
             }
         });

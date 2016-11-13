@@ -85,4 +85,26 @@ public class SqliteHelper_Query {
     }
 
 
+    public ArrayList<JapanDic_English> getDanhsach_bookmark() {
+        ArrayList<JapanDic_English> listtu = new ArrayList<>();
+        String sql=" SELECT * FROM tbl_english where Save = '1' ";
+        database = mDbHelper.getReadableDatabase();
+        Cursor cursor_english = database.rawQuery(sql, null);
+        if(cursor_english.moveToFirst()) {
+            do {
+                JapanDic_English word_eng = new JapanDic_English();
+                word_eng.setID_ENG(cursor_english.getString(0));
+                word_eng.setENG_WORD(cursor_english.getString(1));
+                word_eng.setENG_MEAN(cursor_english.getString(2));
+                word_eng.setENG_NOTE(cursor_english.getString(3));
+                word_eng.setSAVE(cursor_english.getInt(4));
+                listtu.add(word_eng);
+            } while (cursor_english.moveToNext());
+            cursor_english.close();
+
+        }
+        database.close();
+        return listtu;
+    }
+
 }

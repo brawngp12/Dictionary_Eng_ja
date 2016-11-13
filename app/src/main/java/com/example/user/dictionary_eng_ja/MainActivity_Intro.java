@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 
 import com.example.user.dictionary_eng_ja.Adapter.Adapter_danhsachtu;
+import com.example.user.dictionary_eng_ja.Fragment_Source.Fragment_favourite;
 import com.example.user.dictionary_eng_ja.Fragment_Source.Fragment_listword;
 import com.example.user.dictionary_eng_ja.Fragment_Source.Fragment_listword_japan;
 import com.example.user.dictionary_eng_ja.Object.JapanDic_English;
@@ -49,6 +50,12 @@ import static android.R.attr.fragment;
         setContentView(R.layout.activity_main__intro);
         exec = new SqliteHelper_Query(getApplicationContext());
         Loadcontrol();
+
+        android.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        Fragment fragment = new Fragment_listword();
+        fragmentTransaction.replace(R.id.layout_fragment, fragment);
+        fragmentTransaction.commit();
+
         btn_word_english.setOnClickListener(this);
         btn_setting.setOnClickListener(this);
         btn_word_japan.setOnClickListener(this);
@@ -96,7 +103,7 @@ import static android.R.attr.fragment;
                     fragment = new Fragment_listword_japan();
                     break;
                 case R.id.btn_word_favourite:
-                    fragment = new Fragment_listword();
+                    fragment = new Fragment_favourite();
                     break;
                 case R.id.btn_setting:
                     fragment = new Fragment_listword_japan();

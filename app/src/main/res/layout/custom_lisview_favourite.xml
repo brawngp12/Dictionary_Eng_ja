@@ -9,7 +9,7 @@
         >
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:translationY="2dp"
             android:translationX="1dp"
 
@@ -23,15 +23,19 @@
                 android:layout_weight="1"
                 android:text="@string/test"
                 android:textColor="@android:color/white"
-                android:id="@+id/txt_lst_danhsach"
+                android:id="@+id/txt_lst_danhsach_favour"
+                android:paddingTop="12dp"
 
                 />
-            <Button
+
+            <ImageButton
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="5"
-                android:background="@android:color/transparent"
+                android:src="@drawable/delete"
                 android:id="@+id/btn_lst_danhsachtu"
+                android:background="@android:color/transparent"
+
                 />
         </LinearLayout>
 
