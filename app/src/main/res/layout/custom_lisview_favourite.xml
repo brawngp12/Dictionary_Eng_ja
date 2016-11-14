@@ -14,7 +14,7 @@
             android:translationX="1dp"
 
             android:translationZ="10dp"
-            android:weightSum="6">
+            android:weightSum="4">
 
 
             <TextView
@@ -26,15 +26,15 @@
                 android:id="@+id/txt_lst_danhsach_favour"
                 android:paddingTop="12dp"
 
+
                 />
 
-            <ImageButton
+            <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="5"
-                android:src="@drawable/delete"
-                android:id="@+id/btn_lst_danhsachtu"
-                android:background="@android:color/transparent"
+                android:layout_weight="3"
+                android:id="@+id/btn_favour"
+                android:background="@drawable/delete"
 
                 />
         </LinearLayout>
