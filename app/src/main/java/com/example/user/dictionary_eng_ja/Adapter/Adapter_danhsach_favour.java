@@ -1,8 +1,10 @@
 package com.example.user.dictionary_eng_ja.Adapter;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 import com.example.user.dictionary_eng_ja.Meaning_Activity;
 import com.example.user.dictionary_eng_ja.Object.JapanDic_English;
 import com.example.user.dictionary_eng_ja.R;
+import com.example.user.dictionary_eng_ja.Sqlite_build.SqliteHelper_Query;
 
 import java.util.List;
 
@@ -25,10 +28,11 @@ public class Adapter_danhsach_favour extends ArrayAdapter<JapanDic_English> {
     private Context context ;
     private int resource ;
     private List<JapanDic_English> objects;
-
+    SqliteHelper_Query exec   ;
+    private JapanDic_English japanDic_english1;
     @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         convertView = layoutInflater.inflate(resource,null);
         if(objects != null)
@@ -54,12 +58,21 @@ public class Adapter_danhsach_favour extends ArrayAdapter<JapanDic_English> {
                 btn_favour.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
+                        final AlertDialog.Builder alertDialog=new AlertDialog.Builder(getContext());
+                        alertDialog.setTitle("Chọn chức năng");
+                        AlertDialog.Builder  diag_update = new AlertDialog.Builder(getContext());
+                        alertDialog.setNegativeButton("Xóa bookmark", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                exec = new SqliteHelper_Query(getContext());
+                                japanDic_english1 = objects.get(position);
+                                exec.deletebookmark(japanDic_english1.getID_ENG());
+                            }
+                        });
+                        alertDialog.show();
                     }
                 });
-//                Intent intent = new Intent(getContext(), Meaning_Activity.class);
-//                intent.putExtra("tuchon", t);
-//                getContext().startActivity(intent);
+//
             }
         });
 

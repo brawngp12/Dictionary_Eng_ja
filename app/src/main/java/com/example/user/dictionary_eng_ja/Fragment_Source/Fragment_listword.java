@@ -1,16 +1,11 @@
 package com.example.user.dictionary_eng_ja.Fragment_Source;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.app.ListFragment;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -38,18 +33,23 @@ public class Fragment_listword extends android.app.Fragment {
         ////exec = new SqliteHelper_Query(getActivity());
         exec = SqliteHelper_Query.getInst(getActivity());
         japanDic_english = exec.getDanhsach();
-        ListView listView = (ListView) v.findViewById(R.id.lst_word);
+        final ListView listView = (ListView) v.findViewById(R.id.lst_word);
         Adapter_danhsachtu arrayAdapter = new Adapter_danhsachtu(getActivity(),R.layout.custom_listview,japanDic_english);
         listView.setAdapter(arrayAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getActivity(), Meaning_Activity.class);
+                JapanDic_English japanDic_english ;
+                japanDic_english= (JapanDic_English) listView.getItemAtPosition(i);
+                intent.putExtra("tuchon", japanDic_english);
                 String sSi = intent.toString();
-                startActivity(intent);
+                Fragment_listword.this.startActivity(intent);
+
                 if(sSi != null) {
                     Toast.makeText(getActivity(), " Chuyển sang layout khác nào english ", Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
         return v;

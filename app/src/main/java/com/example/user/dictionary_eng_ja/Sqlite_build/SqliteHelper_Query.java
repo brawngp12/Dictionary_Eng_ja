@@ -1,8 +1,10 @@
 package com.example.user.dictionary_eng_ja.Sqlite_build;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.util.Log;
 
 
@@ -107,4 +109,27 @@ public class SqliteHelper_Query {
         return listtu;
     }
 
+
+
+
+    public boolean deletebookmark(String string) {
+        try {
+            database = mDbHelper.getWritableDatabase();
+
+            String whereAttachment1 = SqliteHelper_object.ENG_ID + " = ? ";
+            ContentValues cv = new ContentValues();
+            cv.put(SqliteHelper_object.ENG_ID, string);
+            cv.put(SqliteHelper_object.ENG_SAVE, 0);
+            database.update(SqliteHelper_object.TABLE_ENG,cv,whereAttachment1,new String[]{string});
+            database.close();
+
+            return true;
+        } catch (SQLiteException e) {
+            database.close();
+            return false;
+        }
+    }
+
 }
+
+

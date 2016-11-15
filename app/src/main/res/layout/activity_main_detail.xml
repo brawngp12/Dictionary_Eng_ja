@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
 
-</LinearLayout>
+    android:layout_marginTop="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvTu"
+        android:text="Word :"
+        android:textSize="@dimen/activity_horizontal_margin"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tvTu"
+        android:id="@+id/txt_word"
+        android:textSize="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:text=" từ ở đây"/>
+
+    <TextView
+        android:layout_below="@id/txt_word"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/meaning"
+        android:text="Meaning :"
+        android:textSize="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="5dp"
+        />
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:layout_below="@+id/meaning"
+        android:id="@+id/txt_meaning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text view phien am"
+        android:textSize="@dimen/activity_horizontal_margin"/>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:id="@+id/nghia"
+        android:layout_below="@id/meaning"
+        android:text=" Note :"
+        android:textSize="@dimen/activity_horizontal_margin"/>
+    <TextView
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:layout_below="@+id/nghia"
+        android:id="@+id/txt_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fragment nghia"
+        android:textSize="@dimen/activity_horizontal_margin"/>
+
+</RelativeLayout>

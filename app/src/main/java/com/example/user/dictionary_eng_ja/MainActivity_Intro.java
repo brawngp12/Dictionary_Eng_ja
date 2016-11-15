@@ -48,14 +48,12 @@ import static android.R.attr.fragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main__intro);
-
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 
         exec = new SqliteHelper_Query(getApplicationContext());
         Loadcontrol();
-
         android.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         Fragment fragment = new Fragment_listword();
         fragmentTransaction.replace(R.id.layout_fragment, fragment);
@@ -65,8 +63,6 @@ import static android.R.attr.fragment;
         btn_setting.setOnClickListener(this);
         btn_word_japan.setOnClickListener(this);
         btn_word_favourite.setOnClickListener(this);
-
-
 
 ////    LoadAdapter_dstu();
 
