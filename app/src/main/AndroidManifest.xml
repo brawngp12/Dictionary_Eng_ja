@@ -17,9 +17,16 @@
             </intent-filter>
         </activity>
 
-        <activity  android:name=".Meaning_Activity"
-            >
-            </activity>
+        <activity android:name=".Meaning_Activity"
+            android:theme="@style/NoActionBar"
+            android:label="Meaning"
+            android:parentActivityName=".MainActivity_Intro">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity_Intro" />
+        </activity>
+
+
     </application>
 
 </manifest>
