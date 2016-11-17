@@ -130,6 +130,46 @@ public class SqliteHelper_Query {
         }
     }
 
+
+    public boolean updatebookmark(JapanDic_English english) {
+        try {
+            database = mDbHelper.getWritableDatabase();
+
+
+            String whereAttachment1 = SqliteHelper_object.ENG_ID + " = ? ";
+
+
+            //insert lai tu da luu
+            ContentValues cv = new ContentValues();
+
+            cv.put(SqliteHelper_object.ENG_ID, english.getID_ENG());
+
+            cv.put(SqliteHelper_object.ENG_SAVE, 1);
+            database.update(SqliteHelper_object.TABLE_ENG,cv,whereAttachment1, new String[]{english.getID_ENG()});
+
+
+            database.close();
+            return true;
+        } catch (SQLiteException e) {
+            database.close();
+            return false;
+        }
+    }
+
+
+    public boolean update_word(String sMeaning , String sWord ) {
+        try {
+            database=mDbHelper.getWritableDatabase();
+            ContentValues cv=new ContentValues();
+            cv.put(SqliteHelper_object.ENG_MEAN, sMeaning);
+            database.update( SqliteHelper_object.TABLE_ENG , cv , SqliteHelper_object.ENG_NAME +"=" +sWord , null );
+            database.close();
+            return true;
+        } catch (SQLiteException e) {
+            database.close();
+            return false;
+        }
+    }
 }
 
 

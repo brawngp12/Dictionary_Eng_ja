@@ -19,6 +19,7 @@
                 android:textColor="@android:color/white"
                 android:id="@+id/txt_lst_danhsach_favour"
                 android:paddingTop="12dp"
+                android:textStyle="bold"
 
                 />
             <RelativeLayout

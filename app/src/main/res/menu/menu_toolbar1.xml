@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     >
     <item
-        android:id="@+id/update_menu"
+        android:id="@+id/update_meaning"
         android:title="Update Meaning">
         </item>
 
     <item
-        android:id="@+id/Update_Note"
+        android:id="@+id/update_note"
         android:title="Update Note"
         ></item>
     <item

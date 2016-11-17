@@ -35,6 +35,7 @@ public class Fragment_favourite extends android.app.Fragment {
         final ListView listView = (ListView) v.findViewById(R.id.lst_word);
         Adapter_danhsach_favour arrayAdapter = new Adapter_danhsach_favour(getActivity(),R.layout.custom_lisview_favourite,japanDic_english);
         listView.setAdapter(arrayAdapter);
+        arrayAdapter.notifyDataSetChanged();
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -45,11 +46,11 @@ public class Fragment_favourite extends android.app.Fragment {
 
                 Fragment_favourite.this.startActivity(intent);
 
-                String sSi = intent.toString();
+                /*String sSi = intent.toString();
 
                 if(sSi != null) {
                     Toast.makeText(getActivity(), " Chuyển sang layout khác nào bookmark item ", Toast.LENGTH_SHORT).show();
-                }
+                }*/
             }
         });
         return v;

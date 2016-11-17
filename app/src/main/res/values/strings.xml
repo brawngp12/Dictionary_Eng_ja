@@ -11,4 +11,8 @@
     <string name="japan">Japan</string>
     <string name="favourite">Favourite</string>
     <string name="meaning">Meaning</string>
+    <string name="update">UPDATE</string>
+    <string name="h_y">Hủy</string>
+    <string name="update_meaning">UPDATE MEANING</string>
+    <string name="share">Share</string>
 </resources>

@@ -36,6 +36,7 @@ public class Fragment_listword extends android.app.Fragment {
         final ListView listView = (ListView) v.findViewById(R.id.lst_word);
         Adapter_danhsachtu arrayAdapter = new Adapter_danhsachtu(getActivity(),R.layout.custom_listview,japanDic_english);
         listView.setAdapter(arrayAdapter);
+        arrayAdapter.notifyDataSetChanged();
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -46,9 +47,9 @@ public class Fragment_listword extends android.app.Fragment {
                 String sSi = intent.toString();
                 Fragment_listword.this.startActivity(intent);
 
-                if(sSi != null) {
+               /* if(sSi != null) {
                     Toast.makeText(getActivity(), " Chuyển sang layout khác nào english ", Toast.LENGTH_SHORT).show();
-                }
+                }*/
 
             }
         });

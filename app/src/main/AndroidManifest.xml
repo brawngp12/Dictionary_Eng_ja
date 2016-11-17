@@ -27,6 +27,17 @@
         </activity>
 
 
+        <activity android:name=".Search_Activity"
+            android:theme="@style/NoActionBar"
+            android:label="Search"
+            android:parentActivityName=".MainActivity_Intro">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity_Intro" />
+        </activity>
+
+
+
     </application>
 
 </manifest>

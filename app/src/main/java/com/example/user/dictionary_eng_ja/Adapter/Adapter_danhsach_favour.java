@@ -12,7 +12,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.user.dictionary_eng_ja.Fragment_Source.Fragment_favourite;
 import com.example.user.dictionary_eng_ja.Meaning_Activity;
 import com.example.user.dictionary_eng_ja.Object.JapanDic_English;
 import com.example.user.dictionary_eng_ja.R;
@@ -29,6 +31,7 @@ public class Adapter_danhsach_favour extends ArrayAdapter<JapanDic_English> {
     private int resource ;
     private List<JapanDic_English> objects;
     SqliteHelper_Query exec   ;
+
     private JapanDic_English japanDic_english1;
     @NonNull
     @Override
@@ -41,6 +44,7 @@ public class Adapter_danhsach_favour extends ArrayAdapter<JapanDic_English> {
             JapanDic_English japanDic_english1;
             japanDic_english1 = objects.get(position);
             txt_lst_danhsach_favour.setText(japanDic_english1.getENG_WORD());
+
         }
 
         else
@@ -57,7 +61,7 @@ public class Adapter_danhsach_favour extends ArrayAdapter<JapanDic_English> {
                 Button btnFavour = (Button) view.findViewById(R.id.btn_favour);
                 btn_favour.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View view) {
+                    public void onClick(final View view) {
                         final AlertDialog.Builder alertDialog=new AlertDialog.Builder(getContext());
                         alertDialog.setTitle("Chọn chức năng");
                         AlertDialog.Builder  diag_update = new AlertDialog.Builder(getContext());
@@ -66,16 +70,33 @@ public class Adapter_danhsach_favour extends ArrayAdapter<JapanDic_English> {
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 exec = new SqliteHelper_Query(getContext());
                                 japanDic_english1 = objects.get(position);
-                                exec.deletebookmark(japanDic_english1.getID_ENG());
+                                if(exec.deletebookmark(japanDic_english1.getID_ENG()) == true)
+                                {
+                                    Toast.makeText(getContext()," Remove bookmark is complete ",Toast.LENGTH_SHORT).show();
+                                    notifyDataSetChanged();
+                                }
+                                else
+                                    Toast.makeText(getContext()," Fail to remove ",Toast.LENGTH_SHORT).show();
+
+
                             }
                         });
                         alertDialog.show();
+
+
                     }
                 });
+
+
 //
             }
         });
 
+
+
+
+
+        notifyDataSetChanged();
         return convertView;
     }
 
