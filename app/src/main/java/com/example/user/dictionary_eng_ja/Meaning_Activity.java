@@ -158,7 +158,12 @@ public class Meaning_Activity extends AppCompatActivity  implements View.OnClick
            {
                Toast.makeText(getApplicationContext(),"UPDATE to"+meaning+" ", Toast.LENGTH_SHORT).show();
                ///Log.d("text",meaning);
+               Intent intent = getIntent();
+               JapanDic_English tu = (JapanDic_English) intent.getSerializableExtra("tuchon");
+               tu.setENG_NOTE(meaning);
 
+               intent.putExtra("tuchon",tu);
+               viewPager.setAdapter(new SectionPagerAdapter(getSupportFragmentManager()));
 
            }
             else {
