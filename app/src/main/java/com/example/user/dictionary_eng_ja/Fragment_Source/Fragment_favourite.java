@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -33,9 +34,11 @@ public class Fragment_favourite extends android.app.Fragment {
         exec = SqliteHelper_Query.getInst(getActivity());
         japanDic_english = exec.getDanhsach_bookmark();
         final ListView listView = (ListView) v.findViewById(R.id.lst_word);
+        listView.invalidateViews();
         Adapter_danhsach_favour arrayAdapter = new Adapter_danhsach_favour(getActivity(),R.layout.custom_lisview_favourite,japanDic_english);
         listView.setAdapter(arrayAdapter);
         arrayAdapter.notifyDataSetChanged();
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -43,6 +46,7 @@ public class Fragment_favourite extends android.app.Fragment {
                 JapanDic_English japanDic_english ;
                 japanDic_english= (JapanDic_English) listView.getItemAtPosition(i);
                 intent.putExtra("tuchon", japanDic_english);
+
 
                 Fragment_favourite.this.startActivity(intent);
 

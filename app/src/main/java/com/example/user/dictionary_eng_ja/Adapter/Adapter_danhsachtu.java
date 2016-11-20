@@ -32,13 +32,12 @@ public class Adapter_danhsachtu extends ArrayAdapter<JapanDic_English> {
         if(objects != null)
         {
             TextView txt_lst_danhsach = (TextView) convertView.findViewById(R.id.txt_lst_danhsach);
-
             JapanDic_English japanDic_english1;
-
-
             japanDic_english1 = objects.get(position);
-
             txt_lst_danhsach.setText(japanDic_english1.getENG_WORD());
+          ///  objects.remove(position);
+            notifyDataSetChanged();
+
 
         }
         else

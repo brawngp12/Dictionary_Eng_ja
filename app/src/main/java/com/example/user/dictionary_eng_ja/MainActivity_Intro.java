@@ -44,7 +44,9 @@ import java.util.ArrayList;
 
 
         exec = new SqliteHelper_Query(getApplicationContext());
+
         Loadcontrol();
+
         android.app.FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         Fragment fragment = new Fragment_listword();
         fragmentTransaction.replace(R.id.layout_fragment, fragment);
@@ -124,6 +126,7 @@ import java.util.ArrayList;
             }
             fragmentTransaction.replace(R.id.layout_fragment, fragment);
             fragmentTransaction.commit();
+
         }
 
     }

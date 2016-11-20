@@ -1,9 +1,11 @@
 package com.example.user.dictionary_eng_ja.Adapter;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.user.dictionary_eng_ja.Fragment_Source.Fragment_favourite;
+import com.example.user.dictionary_eng_ja.Fragment_Source.Fragment_listword;
 import com.example.user.dictionary_eng_ja.Meaning_Activity;
 import com.example.user.dictionary_eng_ja.Object.JapanDic_English;
 import com.example.user.dictionary_eng_ja.R;
@@ -45,6 +48,7 @@ public class Adapter_danhsach_favour extends ArrayAdapter<JapanDic_English> {
             japanDic_english1 = objects.get(position);
             txt_lst_danhsach_favour.setText(japanDic_english1.getENG_WORD());
 
+
         }
 
         else
@@ -72,31 +76,22 @@ public class Adapter_danhsach_favour extends ArrayAdapter<JapanDic_English> {
                                 japanDic_english1 = objects.get(position);
                                 if(exec.deletebookmark(japanDic_english1.getID_ENG()) == true)
                                 {
+                                    objects.remove(position);
                                     Toast.makeText(getContext()," Remove bookmark is complete ",Toast.LENGTH_SHORT).show();
                                     notifyDataSetChanged();
                                 }
                                 else
                                     Toast.makeText(getContext()," Fail to remove ",Toast.LENGTH_SHORT).show();
-
-
                             }
                         });
                         alertDialog.show();
-
-
                     }
                 });
-
 
 //
             }
         });
 
-
-
-
-
-        notifyDataSetChanged();
         return convertView;
     }
 
@@ -105,5 +100,6 @@ public class Adapter_danhsach_favour extends ArrayAdapter<JapanDic_English> {
         this.context = context;
         this.resource = resource;
         this.objects = objects;
+
     }
 }

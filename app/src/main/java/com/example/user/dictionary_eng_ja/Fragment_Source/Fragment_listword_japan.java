@@ -35,6 +35,7 @@ public class Fragment_listword_japan extends android.app.Fragment {
         final ListView listView = (ListView) v.findViewById(R.id.lst_word);
         Adapter_danhsachtiengnhat arrayAdapter = new Adapter_danhsachtiengnhat(getActivity(),R.layout.custom_listview,japanDic_english);
         listView.setAdapter(arrayAdapter);
+        listView.invalidateViews();
         arrayAdapter.notifyDataSetChanged();
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

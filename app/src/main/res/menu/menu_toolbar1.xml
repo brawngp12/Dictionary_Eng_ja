@@ -3,16 +3,19 @@
     >
     <item
         android:id="@+id/update_meaning"
-        android:title="Update Meaning">
+        android:title="Update NOTE">
         </item>
 
-    <item
-        android:id="@+id/update_note"
-        android:title="Update Note"
-        ></item>
+
     <item
         android:id="@+id/bookmark_menu"
         android:title="Bookmark"
+        >
+    </item>
+
+    <item
+        android:id="@+id/bookmark_menu_delteall"
+        android:title="Remove All Bookmark"
         >
     </item>
 

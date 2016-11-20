@@ -34,6 +34,7 @@ public class Fragment_listword extends android.app.Fragment {
         exec = SqliteHelper_Query.getInst(getActivity());
         japanDic_english = exec.getDanhsach();
         final ListView listView = (ListView) v.findViewById(R.id.lst_word);
+        listView.invalidateViews();
         Adapter_danhsachtu arrayAdapter = new Adapter_danhsachtu(getActivity(),R.layout.custom_listview,japanDic_english);
         listView.setAdapter(arrayAdapter);
         arrayAdapter.notifyDataSetChanged();
